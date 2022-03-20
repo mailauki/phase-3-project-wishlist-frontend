@@ -3,18 +3,23 @@
   justify-content: space-evenly;
 }
 
-.Item:hover .ButtonGroup {
+.Item:hover .ButtonGroup, .Balance:hover .ButtonGroup {
   display: flex;
+}
+
+.Balance .ButtonGroup {
+  width: 160px;
 }
 
 .button {
   font-size: 14px;
   text-transform: uppercase;
   background-color: #e0e0e0;
-  border: 1px solid #aaa;
+  border: 1px solid #bbb;
   color: #565656;
   border-radius: 4px;
   padding: 5px 10px;
+  height: 30px;
 }
 
 .button:hover {

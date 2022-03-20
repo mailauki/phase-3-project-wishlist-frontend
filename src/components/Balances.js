@@ -12,9 +12,12 @@ function Balances() {
   }, [])
 
   return (
-    <div className="Balance shadow">
+    <div className="Balances shadow">
       <h3>Balances</h3>
       {balances.map(balance => <Balance balance={balance} />)}
+      <div className="BalanceAdd">
+        <button className="button">+</button>
+      </div>
     </div>
   )
 }

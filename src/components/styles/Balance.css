@@ -1,6 +1,30 @@
-.Balance {
+.Balances {
   width: 510px;
   border-radius: 20px;
   margin: 20px auto 30px auto;
-  padding: 2px;
+  padding: 4px;
+  min-height: 120px;
+  position: relative;
+}
+
+.Balance {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+}
+
+.Balance p {
+  margin: 4px auto;
+}
+
+.BalanceAdd {
+  position: absolute;
+  bottom: 20px;
+  right: 30px;
+}
+
+.BalanceAdd .button {
+  font-size: 20px;
+  line-height: 16px;
 }

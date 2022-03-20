@@ -18,3 +18,7 @@
   box-shadow:  10px 10px 20px #cacaca,
               -10px -10px 20px #f6f6f6;
 }
+
+h3 {
+  margin: 10px auto;
+}
