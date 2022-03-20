@@ -1,6 +1,5 @@
-import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
-import 'react-circular-progressbar/dist/styles.css';
 import './styles/Item.css'
+import CircularProgressBar from './CircularProgressBar'
 
 function Item(value) {
   const {name, price, priority, category, balance} = value.value
@@ -16,17 +15,7 @@ function Item(value) {
           <p>Category: {category}</p>
           <p>Balance: {balance.name}</p>
         </div>
-        <div style={{width: 75, height: 75}}>
-          <CircularProgressbar
-            value={percentage}
-            text={`${percentage}%`}
-            styles={buildStyles({
-              pathColor: "#DEC300",
-              trailColor: "#CCC",
-              textColor: "#333",
-            })}
-          />
-        </div>
+        <CircularProgressBar percentage={percentage} />
       </div>
     </div>
   )
