@@ -6,7 +6,7 @@ function Item(value) {
   const percentage = Math.floor((balance.amount/price) * 100)
 
   return (
-    <div className="Item">
+    <div className="Item shadow">
       <h3>{name}</h3>
       <div className="ItemContent">
         <div className="ItemInfo">

@@ -11,7 +11,7 @@ function Balance() {
   }, [])
 
   return (
-    <div className="Balance">
+    <div className="Balance shadow">
       <h3>Balances</h3>
       {balances.map(balance => <p>{balance.name} - ${balance.amount}</p>)}
     </div>

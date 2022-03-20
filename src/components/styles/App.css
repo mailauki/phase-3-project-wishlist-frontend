@@ -11,3 +11,9 @@
   width: fit-content;
   margin: 20px auto;
 }
+
+.shadow {
+  background: #e0e0e0;
+  box-shadow:  10px 10px 20px #cacaca,
+              -10px -10px 20px #f6f6f6;
+}
