@@ -20,6 +20,11 @@ function Item(value) {
           <CircularProgressbar
             value={percentage}
             text={`${percentage}%`}
+            styles={buildStyles({
+              pathColor: "#DEC300",
+              trailColor: "#CCC",
+              textColor: "#333",
+            })}
           />
         </div>
       </div>
