@@ -1,5 +1,6 @@
 import Balance from './Balance';
 import Item from './Item';
+import { Link } from 'react-router-dom';
 
 function Content({items}) {
   return (
@@ -8,9 +9,11 @@ function Content({items}) {
       <div className="ItemContainer">
         {items.map(item => <Item value={item} />)}
         <div className="Item shadow">
-          <div className="ItemAdd">
-            <h1>+</h1>
-          </div>
+          <Link to="/add-item" >
+            <div className="ItemAdd">
+              <h1>+</h1>
+            </div>
+          </Link>
         </div>
       </div>
     </div>
