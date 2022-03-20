@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  background: #e0e0e0;
+  padding: 4px;
 }
 
 .ItemContainer {
