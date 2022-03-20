@@ -3,7 +3,7 @@ import CircularProgressBar from './CircularProgressBar'
 import ButtonGroup from './ButtonGroup';
 
 function Item({item}) {
-  const {name, price, priority, category, balance} = item
+  const {id, name, price, priority, category, balance} = item
   const percentage = Math.floor((balance.amount/price) * 100)
 
   return (
@@ -11,7 +11,7 @@ function Item({item}) {
       <h3>{name}</h3>
       <div className="ItemContent">
         <div className="ItemInfo">
-          <p>Price: ${price}</p>
+          <p>Price: ${parseFloat(price).toFixed(2)}</p>
           <p>Priority: {priority}</p>
           <p>Category: {category}</p>
           <p>Balance: {balance.name}</p>
