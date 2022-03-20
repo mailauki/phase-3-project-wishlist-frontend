@@ -18,7 +18,9 @@ function App() {
       <Header />
       <div className="Content">
         <Balance />
-        {items.map(item => <Item value={item} />)}
+        <div className="ItemContainer">
+          {items.map(item => <Item value={item} />)}
+        </div>
       </div>
     </div>
   );
