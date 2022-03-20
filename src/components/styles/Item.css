@@ -1,0 +1,19 @@
+.Item {
+  width: 240px;
+  height: 240px;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.ItemContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ItemInfo {
+  text-align: left;
+  padding: 10px;
+  font-size: 14px;
+  color: #555;
+}
