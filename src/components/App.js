@@ -20,6 +20,11 @@ function App() {
         <Balance />
         <div className="ItemContainer">
           {items.map(item => <Item value={item} />)}
+          <div className="Item shadow">
+            <div className="ItemAdd">
+              <h1>+</h1>
+            </div>
+          </div>
         </div>
       </div>
     </div>

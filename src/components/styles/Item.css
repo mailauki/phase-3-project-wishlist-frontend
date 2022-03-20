@@ -9,11 +9,24 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 0 10px;
 }
 
 .ItemInfo {
   text-align: left;
-  padding: 10px;
   font-size: 14px;
   color: #555;
+}
+
+.ItemAdd {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 240px;
+  font-size: x-large;
+  color: #555;
+}
+
+.ItemAdd:hover {
+  background-color: rgba(200, 200, 200, 0.5);
 }
