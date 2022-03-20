@@ -1,5 +1,6 @@
 function Item(value) {
   const {name, price, priority, category, balance} = value.value
+  
   return (
     <div className="Item">
       <h3>{name}</h3>
