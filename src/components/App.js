@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
+import { Routes, Route } from 'react-router-dom';
 import './styles/App.css';
 import Header from './Header';
-import Balance from './Balance';
-import Item from './Item';
+import Content from './Content';
 import ItemForm from './ItemForm';
 
 function App() {
@@ -17,18 +17,10 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <div className="Content">
-        <Balance />
-        <div className="ItemContainer">
-          {items.map(item => <Item value={item} />)}
-          <div className="Item shadow">
-            <div className="ItemAdd">
-              <h1>+</h1>
-            </div>
-          </div>
-        </div>
-        <ItemForm />
-      </div>
+      <Routes>
+        <Route exact path="/" element={<Content items={items} />} />
+          <Route path="/add-item" element={<ItemForm />} />
+        </Routes>
     </div>
   );
 }

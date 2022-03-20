@@ -1,8 +1,8 @@
 import './styles/Item.css'
 import CircularProgressBar from './CircularProgressBar'
 
-function Item(value) {
-  const {name, price, priority, category, balance} = value.value
+function Item({value}) {
+  const {name, price, priority, category, balance} = value
   const percentage = Math.floor((balance.amount/price) * 100)
 
   return (
