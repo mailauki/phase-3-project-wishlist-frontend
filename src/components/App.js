@@ -3,7 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import './styles/App.css';
 import Header from './Header';
 import Content from './Content';
-import ItemForm from './ItemForm';
+import AddItemForm from './AddItemForm';
 
 function App() {
 
@@ -12,7 +12,7 @@ function App() {
       <Header />
       <Routes>
         <Route exact path="/" element={<Content />} />
-          <Route path="/add-item" element={<ItemForm />} />
+          <Route path="/add-item" element={<AddItemForm />} />
         </Routes>
     </div>
   );

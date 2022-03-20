@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { ToggleButtonGroup, ToggleButton } from '@mui/material';
 import Balances from './Balances';
 import Item from './Item';
-import { Link } from 'react-router-dom';
 
 function Content() {
   const [items, setItems] = useState([])
+  const [sort, setSort] = useState("price");
 
   useEffect(() => {
     fetch("http://localhost:9292/items")
@@ -20,8 +22,19 @@ function Content() {
     setItems(updatedItems)
   }
 
+  function handleSortChange(event, selected) {
+    setSort(selected)
+    fetch(`http://localhost:9292/items/by_${selected}`)
+    .then(res => res.json())
+    .then(data => setItems(data))
+  }
+
   return (
     <div className="Content">
+      <ToggleButtonGroup exclusive value={sort} onChange={handleSortChange}>
+        <ToggleButton value="price">Price</ToggleButton>
+        <ToggleButton value="priority">Priority</ToggleButton>
+      </ToggleButtonGroup>
       <Balances />
       <div className="ItemContainer">
         {items.map(item => <Item item={item} key={item.id} onDeleteItem={handleDeletedItem} />)}

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import './styles/ItemForm.css';
 
-function ItemForm() {
+function AddItemForm() {
   const [balances, setBalances] = useState([])
   const [itemName, setItemName] = useState("")
   const [itemPrice, setItemPrice] = useState()
@@ -88,4 +88,4 @@ function ItemForm() {
   )
 }
 
-export default ItemForm
+export default AddItemForm

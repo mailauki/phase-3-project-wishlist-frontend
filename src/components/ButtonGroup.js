@@ -1,4 +1,6 @@
-function ButtonGroup({ id, onDeleteItem }) {
+
+
+function ButtonGroup({ id, onDeleteItem, onEditItem, editData }) {
   function handleItemDelete() {
     fetch(`http://localhost:9292/items/${id}`, {
       method: "DELETE",
@@ -7,10 +9,22 @@ function ButtonGroup({ id, onDeleteItem }) {
     .then(data => onDeleteItem(data))
   }
 
+  function handleItemEdit() {
+    fetch(`http://localhost:9292/items/${id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(editData)
+    })
+    .then(res => res.json())
+    .then(data => onEditItem(data))
+  }
+
   return (
     <div className="ButtonGroup">
-      <button onClick={handleItemDelete}>X</button>
-      <button>Edit</button>
+      <button className="button" onClick={handleItemDelete}>X</button>
+      <button className="button" onClick={handleItemEdit}>Edit</button>
     </div>
   )
 }
