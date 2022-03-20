@@ -26,6 +26,7 @@
 .Form form label {
   width: 140px;
   text-transform: uppercase;
+  color: #555;
 }
 
 .Form form input {
@@ -42,4 +43,8 @@
   width: 312px;
   padding: 6px;
   margin: 12px;
+}
+
+.Form .PriorityToggle {
+  margin: auto 18px;
 }

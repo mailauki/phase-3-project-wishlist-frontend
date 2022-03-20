@@ -7,10 +7,12 @@ function AddBalanceForm() {
 
   function handleBalanceFormSubmit(event) {
     event.preventDefault()
+
     const formData = {
       name: balanceName,
       amount: balanceAmount,
     }
+    
     fetch("http://localhost:9292/balances", {
       method: "POST",
       headers: {

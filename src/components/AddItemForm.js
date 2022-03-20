@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import './styles/Form.css';
+import { ToggleButtonGroup, ToggleButton } from '@mui/material';
 
 function AddItemForm() {
   const [balances, setBalances] = useState([])
@@ -17,12 +18,14 @@ function AddItemForm() {
 
   function handleItemFormSubmit(event) {
     event.preventDefault()
+
     const formData = {
       name: itemName,
       price: itemPrice,
       priority: itemPriority,
       balance_id: balanceId,
     }
+
     fetch("http://localhost:9292/items", {
       method: "POST",
       headers: {
@@ -59,13 +62,17 @@ function AddItemForm() {
         </div>
         <div>
           <label>Priority #{itemPriority}</label>
-          <input
-            type="range"
-            min="1"
-            max="5"
+          <ToggleButtonGroup
+            className="PriorityToggle"
+            exclusive
             value={itemPriority}
-            onChange={event => setItemPriority(event.target.value)}
-          />
+            onChange={(event, selected) => setItemPriority(selected)}
+          >
+            <ToggleButton value={1}>!</ToggleButton>
+            <ToggleButton value={2}>!!</ToggleButton>
+            <ToggleButton value={3}>!!!</ToggleButton>
+            <ToggleButton value={4}>!!!!</ToggleButton>
+          </ToggleButtonGroup>
         </div>
         <div>
           <label>Category</label>
