@@ -2,7 +2,7 @@ import './styles/Item.css'
 import CircularProgressBar from './CircularProgressBar'
 import ButtonGroup from './ButtonGroup';
 
-function Item({item}) {
+function Item({ item, onDeleteItem }) {
   const {id, name, price, priority, category, balance} = item
   const percentage = Math.floor((balance.amount/price) * 100)
 
@@ -18,7 +18,7 @@ function Item({item}) {
         </div>
         <CircularProgressBar percentage={percentage} />
       </div>
-      <ButtonGroup />
+      <ButtonGroup id={id} onDeleteItem={onDeleteItem} />
     </div>
   )
 }
