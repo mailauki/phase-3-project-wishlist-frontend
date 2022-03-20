@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import './styles/Balance.css'
 
 function Balance() {
   const [balances, setBalances] = useState([])
