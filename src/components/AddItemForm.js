@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import './styles/ItemForm.css';
+import './styles/Form.css';
 
 function AddItemForm() {
   const [balances, setBalances] = useState([])
@@ -35,7 +35,7 @@ function AddItemForm() {
   }
 
   return (
-    <div className="ItemForm shadow">
+    <div className="Form shadow">
       <h3>Add an Item</h3>
       <form onSubmit={handleItemFormSubmit}>
         <div>

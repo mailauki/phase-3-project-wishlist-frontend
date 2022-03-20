@@ -4,6 +4,7 @@ import './styles/App.css';
 import Header from './Header';
 import Content from './Content';
 import AddItemForm from './AddItemForm';
+import AddBalanceForm from './AddBalanceForm';
 
 function App() {
 
@@ -12,8 +13,9 @@ function App() {
       <Header />
       <Routes>
         <Route exact path="/" element={<Content />} />
-          <Route path="/add-item" element={<AddItemForm />} />
-        </Routes>
+        <Route path="/add-item" element={<AddItemForm />} />
+        <Route path="/add-balance" element={<AddBalanceForm />} />
+      </Routes>
     </div>
   );
 }
