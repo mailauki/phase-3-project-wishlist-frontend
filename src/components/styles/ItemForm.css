@@ -1,0 +1,45 @@
+.ItemForm {
+  width: 510px;
+  border-radius: 20px;
+  margin: 20px auto 30px auto;
+}
+.ItemForm h3 {
+  padding-top: 28px;
+}
+
+.ItemForm form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 28px;
+}
+
+.ItemForm div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin: 12px;
+  text-align: left;
+}
+
+.ItemForm form label {
+  width: 100px;
+  text-transform: uppercase;
+}
+
+.ItemForm form input {
+  width: 200px;
+  padding: 4px;
+}
+
+.ItemForm form select {
+  width: 212px;
+  padding: 4px;
+}
+
+.ItemForm form .submit {
+  width: 312px;
+  padding: 6px;
+  margin: 12px;
+}

@@ -3,6 +3,7 @@ import './styles/App.css';
 import Header from './Header';
 import Balance from './Balance';
 import Item from './Item';
+import ItemForm from './ItemForm';
 
 function App() {
   const [items, setItems] = useState([])
@@ -26,6 +27,7 @@ function App() {
             </div>
           </div>
         </div>
+        <ItemForm />
       </div>
     </div>
   );
