@@ -7,7 +7,7 @@ function Content({items}) {
     <div className="Content">
       <Balance />
       <div className="ItemContainer">
-        {items.map(item => <Item value={item} />)}
+        {items.map(item => <Item item={item} key={item.id} />)}
         <div className="Item shadow">
           <Link to="/add-item" >
             <div className="ItemAdd">

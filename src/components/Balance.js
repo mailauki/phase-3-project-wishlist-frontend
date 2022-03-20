@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import './styles/Balance.css'
+import ButtonGroup from './ButtonGroup';
 
 function Balance() {
   const [balances, setBalances] = useState([])

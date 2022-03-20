@@ -1,8 +1,9 @@
 import './styles/Item.css'
 import CircularProgressBar from './CircularProgressBar'
+import ButtonGroup from './ButtonGroup';
 
-function Item({value}) {
-  const {name, price, priority, category, balance} = value
+function Item({item}) {
+  const {name, price, priority, category, balance} = item
   const percentage = Math.floor((balance.amount/price) * 100)
 
   return (
@@ -17,6 +18,7 @@ function Item({value}) {
         </div>
         <CircularProgressBar percentage={percentage} />
       </div>
+      <ButtonGroup />
     </div>
   )
 }
