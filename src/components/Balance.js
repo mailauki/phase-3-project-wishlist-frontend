@@ -1,20 +1,10 @@
-import { useEffect, useState } from 'react';
-import './styles/Balance.css'
-import ButtonGroup from './ButtonGroup';
+import ButtonGroup from "./ButtonGroup";
 
-function Balance() {
-  const [balances, setBalances] = useState([])
-
-  useEffect(() => {
-    fetch("http://localhost:9292/balances")
-    .then(res => res.json())
-    .then(data => setBalances(data))
-  }, [])
-
+function Balance({balance}) {
   return (
-    <div className="Balance shadow">
-      <h3>Balances</h3>
-      {balances.map(balance => <p>{balance.name} - ${balance.amount}</p>)}
+    <div key={balance.id}>
+      <p>{balance.name} - ${balance.amount}</p>
+      <ButtonGroup />
     </div>
   )
 }

@@ -1,11 +1,11 @@
-import Balance from './Balance';
+import Balances from './Balances';
 import Item from './Item';
 import { Link } from 'react-router-dom';
 
 function Content({items}) {
   return (
     <div className="Content">
-      <Balance />
+      <Balances />
       <div className="ItemContainer">
         {items.map(item => <Item item={item} key={item.id} />)}
         <div className="Item shadow">
