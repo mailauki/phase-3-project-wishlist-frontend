@@ -6,6 +6,26 @@ function Item({ item, onDeleteItem }) {
   const {id, name, price, priority, category, balance} = item
   const percentage = Math.floor((balance.amount/price) * 100)
 
+  function handleItemDelete() {
+    fetch(`http://localhost:9292/items/${id}`, {
+      method: "DELETE",
+    })
+    .then(res => res.json())
+    .then(data => onDeleteItem(data))
+  }
+
+  function handleItemEdit() {
+    // fetch(`http://localhost:9292/items/${id}`, {
+    //   method: "PATCH",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify(editData)
+    // })
+    // .then(res => res.json())
+    // .then(data => onEditItem(data))
+  }
+
   return (
     <div className="Item shadow">
       <h3>{name}</h3>
@@ -18,7 +38,7 @@ function Item({ item, onDeleteItem }) {
         </div>
         <CircularProgressBar percentage={percentage} />
       </div>
-      <ButtonGroup id={id} onDeleteItem={onDeleteItem} />
+      <ButtonGroup id={id} handleDelete={handleItemDelete} handleEdit={handleItemEdit} />
     </div>
   )
 }

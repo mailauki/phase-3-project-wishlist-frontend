@@ -15,7 +15,6 @@ function Content() {
   }, [])
 
   function handleDeletedItem(deletedItem) {
-    console.log(deletedItem.id)
     const updatedItems = items.filter(item => {
       if(item.id !== deletedItem.id) return item
     })

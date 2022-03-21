@@ -12,10 +12,19 @@ function Balances() {
     .then(data => setBalances(data))
   }, [])
 
+  function handleDeletedBalance(deletedBalance) {
+    const updatedBalances = balances.filter(balance => {
+      if(balance.id !== deletedBalance.id) return balance
+    })
+    setBalances(updatedBalances)
+  }
+
   return (
     <div className="Balances shadow">
       <h3>Balances</h3>
-      {balances.map(balance => <Balance key={balance.id} balance={balance} />)}
+      <div className="BalanceContent">
+        {balances.map(balance => <Balance key={balance.id} balance={balance} onDeleteBalance={handleDeletedBalance} />)}
+      </div>
       <Link to="/add-balance" >
         <div className="BalanceAdd">
           <button className="button">+</button>

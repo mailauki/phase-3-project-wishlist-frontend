@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './styles/Form.css';
 import { ToggleButtonGroup, ToggleButton } from '@mui/material';
 
@@ -9,6 +10,7 @@ function AddItemForm() {
   const [itemPriority, setItemPriority] = useState(1)
   const [itemCategory, setItemCategory] = useState("")
   const [balanceId, setBalanceId] = useState()
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch("http://localhost:9292/balances")
@@ -35,6 +37,8 @@ function AddItemForm() {
     })
     .then(res => res.json())
     .then(data => console.log(data))
+    
+    navigate("/")
   }
 
   return (
@@ -68,10 +72,10 @@ function AddItemForm() {
             value={itemPriority}
             onChange={(event, selected) => setItemPriority(selected)}
           >
-            <ToggleButton value={1}>!</ToggleButton>
-            <ToggleButton value={2}>!!</ToggleButton>
-            <ToggleButton value={3}>!!!</ToggleButton>
-            <ToggleButton value={4}>!!!!</ToggleButton>
+            <ToggleButton value={1}><span>!</span></ToggleButton>
+            <ToggleButton value={2}><span>!!</span></ToggleButton>
+            <ToggleButton value={3}><span>!!!</span></ToggleButton>
+            <ToggleButton value={4}><span>!!!!</span></ToggleButton>
           </ToggleButtonGroup>
         </div>
         <div>
@@ -86,10 +90,10 @@ function AddItemForm() {
         <div>
           <label>Balance</label>
           <select onChange={event => setBalanceId(event.target.value)}>
-            {balances.map(balance => <option value={balance.id}>{balance.name}</option>)}
+            {balances.map(balance => <option key={balance.id} value={balance.id}>{balance.name}</option>)}
           </select>
         </div>
-        <input type="submit" className="submit" />
+        <button type="submit" className="submit">Submit</button>
       </form>
     </div>
   )

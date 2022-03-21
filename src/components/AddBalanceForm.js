@@ -1,9 +1,11 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './styles/Form.css';
 
 function AddBalanceForm() {
   const [balanceName, setBalanceName] = useState("")
   const [balanceAmount, setBalanceAmount] = useState()
+  const navigate = useNavigate();
 
   function handleBalanceFormSubmit(event) {
     event.preventDefault()
@@ -22,6 +24,8 @@ function AddBalanceForm() {
     })
     .then(res => res.json())
     .then(data => console.log(data))
+
+    navigate("/")
   }
 
   return (
@@ -47,7 +51,7 @@ function AddBalanceForm() {
             onChange={event => setBalanceAmount(event.target.value)}
           />
         </div>
-        <input type="submit" className="submit" />
+        <button type="submit" className="submit">Submit</button>
       </form>
     </div>
     )
