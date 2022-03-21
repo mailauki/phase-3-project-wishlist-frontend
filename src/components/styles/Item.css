@@ -14,7 +14,7 @@
 
 .ItemInfo {
   text-align: left;
-  font-size: 14px;
+  font-size: 13px;
   color: #555;
 }
 
@@ -33,4 +33,8 @@
 
 .Item a {
   text-decoration: none;
+}
+
+.Item span {
+  font-weight: 500;
 }

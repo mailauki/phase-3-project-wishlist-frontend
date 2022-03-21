@@ -1,25 +1,32 @@
-import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import './styles/Form.css';
+import { useState } from 'react';
 import { ToggleButtonGroup, ToggleButton } from '@mui/material';
 
-function AddItemForm() {
-  const [balances, setBalances] = useState([])
-  const [itemName, setItemName] = useState("")
-  const [itemPrice, setItemPrice] = useState()
-  const [itemPriority, setItemPriority] = useState(1)
-  const [itemCategory, setItemCategory] = useState("")
-  const [balanceId, setBalanceId] = useState()
+function EditItem({ item, balances, onEditSubmit }) {
+  const {id, name, price, priority, category, balance} = item
 
-  const navigate = useNavigate();
+  const [itemName, setItemName] = useState(name)
+  const [itemPrice, setItemPrice] = useState(price)
+  const [itemPriority, setItemPriority] = useState(priority)
+  const [itemCategory, setItemCategory] = useState(category)
+  const [balanceId, setBalanceId] = useState(balance.id)
 
-  useEffect(() => {
-    fetch("http://localhost:9292/balances")
-    .then(res => res.json())
-    .then(data => setBalances(data))
-  }, [])
 
-  function handleItemFormSubmit(event) {
+  const selectedBalance = balances.find(balance => {
+    if(balance.id === balanceId) return balance
+  })
+  // console.log(selectedBalance)
+  
+  // const formData = {
+  //   name: itemName,
+  //   price: itemPrice,
+  //   priority: itemPriority,
+  //   category: itemCategory,
+  //   // balance_id: balanceId,
+  //   balance: selectedBalance
+  // }
+  // console.log(formData)
+
+  function handleEditItemFormSubmit(event) {
     event.preventDefault()
 
     const formData = {
@@ -28,25 +35,30 @@ function AddItemForm() {
       priority: itemPriority,
       category: itemCategory,
       balance_id: balanceId,
+      // balance: selectedBalance
     }
 
-    fetch("http://localhost:9292/items", {
-      method: "POST",
+    fetch(`http://localhost:9292/items/${id}`, {
+      method: "PATCH",
       headers: {
         "Content-Type": "application/json"
       },
       body: JSON.stringify(formData)
     })
     .then(res => res.json())
-    .then(data => console.log(data))
-    
-    navigate("/")
+    .then(data => onEditSubmit(data))
   }
 
+  // console.log(balanceId)
+  // function handleBalanceChange(event) {
+  //   // console.log(event.target.value)
+  //   setBalanceId(Number(event.target.value))
+  //   console.log({balanceId})
+  // }
+
   return (
-    <div className="Form shadow">
-      <h3>Add an Item</h3>
-      <form onSubmit={handleItemFormSubmit}>
+    <div className="Item shadow">
+      <form onSubmit={handleEditItemFormSubmit}>
         <div>
           <label>Item Name</label>
           <input
@@ -74,10 +86,10 @@ function AddItemForm() {
             value={itemPriority}
             onChange={(event, selected) => setItemPriority(selected)}
           >
-            <ToggleButton value={1}><span>!</span></ToggleButton>
-            <ToggleButton value={2}><span>!!</span></ToggleButton>
-            <ToggleButton value={3}><span>!!!</span></ToggleButton>
-            <ToggleButton value={4}><span>!!!!</span></ToggleButton>
+            <ToggleButton className="PriorityToggleButton" value={1}>!</ToggleButton>
+            <ToggleButton className="PriorityToggleButton" value={2}>!!</ToggleButton>
+            <ToggleButton className="PriorityToggleButton" value={3}>!!!</ToggleButton>
+            <ToggleButton className="PriorityToggleButton" value={4}>!!!!</ToggleButton>
           </ToggleButtonGroup>
         </div>
         <div>
@@ -91,7 +103,7 @@ function AddItemForm() {
         </div>
         <div>
           <label>Balance</label>
-          <select value={balanceId} onChange={event => setBalanceId(event.target.value)}>
+          <select value={balanceId} onChange={event => setBalanceId(Number(event.target.value))}>
             {balances.map(balance => <option key={balance.id} value={balance.id}>{balance.name}</option>)}
           </select>
         </div>
@@ -101,4 +113,4 @@ function AddItemForm() {
   )
 }
 
-export default AddItemForm
+export default EditItem;

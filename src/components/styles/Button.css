@@ -18,8 +18,9 @@
   border: 1px solid #bbb;
   color: #565656;
   border-radius: 4px;
-  padding: 5px 10px;
-  height: 30px;
+  padding: 0 10px;
+  height: 34px;
+  min-width: 34px;
 }
 
 .button:hover {

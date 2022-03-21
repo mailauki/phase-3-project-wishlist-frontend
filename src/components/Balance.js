@@ -18,7 +18,7 @@ function Balance({ balance, onDeleteBalance }) {
     //   body: JSON.stringify(editData)
     // })
     // .then(res => res.json())
-    // .then(data => onEditItem(data))
+    // .then(data => onEditBalance(data))
   }
   return (
     <div className="Balance" key={balance.id}>
@@ -28,4 +28,4 @@ function Balance({ balance, onDeleteBalance }) {
   )
 }
 
-export default Balance
+export default Balance;

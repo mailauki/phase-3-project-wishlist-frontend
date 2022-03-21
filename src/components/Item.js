@@ -2,7 +2,7 @@ import './styles/Item.css'
 import CircularProgressBar from './CircularProgressBar'
 import ButtonGroup from './ButtonGroup';
 
-function Item({ item, onDeleteItem }) {
+function Item({ item, onDeleteItem, onEditItem }) {
   const {id, name, price, priority, category, balance} = item
   const percentage = Math.floor((balance.amount/price) * 100)
 
@@ -14,31 +14,19 @@ function Item({ item, onDeleteItem }) {
     .then(data => onDeleteItem(data))
   }
 
-  function handleItemEdit() {
-    // fetch(`http://localhost:9292/items/${id}`, {
-    //   method: "PATCH",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify(editData)
-    // })
-    // .then(res => res.json())
-    // .then(data => onEditItem(data))
-  }
-
   return (
-    <div className="Item shadow">
+    <div className="Item shadow" key={id}>
       <h3>{name}</h3>
       <div className="ItemContent">
         <div className="ItemInfo">
-          <p>Price: ${parseFloat(price).toFixed(2)}</p>
-          <p>Priority: {priority}</p>
-          <p>Category: {category}</p>
-          <p>Balance: {balance.name}</p>
+          <p>PRICE: <span>${parseFloat(price).toFixed(2)}</span></p>
+          <p>PRIORITY: <span>{priority}</span></p>
+          <p>CATEGORY: <span>{category}</span></p>
+          <p>BALANCE: <span>{balance.name}</span></p>
         </div>
         <CircularProgressBar percentage={percentage} />
       </div>
-      <ButtonGroup id={id} handleDelete={handleItemDelete} handleEdit={handleItemEdit} />
+      <ButtonGroup id={id} handleDelete={handleItemDelete} handleEdit={() => onEditItem(item)} />
     </div>
   )
 }

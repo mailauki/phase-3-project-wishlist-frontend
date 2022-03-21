@@ -2,7 +2,11 @@
   text-align: center;
   background: #e0e0e0;
   padding: 4px;
-  height: 100vh;
+  min-height: 100vh;
+}
+
+.Content {
+  margin-bottom: 80px;
 }
 
 .ItemContainer {
