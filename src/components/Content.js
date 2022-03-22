@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ToggleButtonGroup, ToggleButton } from '@mui/material';
-import Balances from './Balances';
+import BalancesContainer from './BalancesContainer';
 import Item from './Item';
 import EditItem from './EditItem';
+import Sort from './Sort';
 
 function Content() {
   const loadingBalance = {name: "Loading name...", amount: 0.00}
@@ -22,7 +22,7 @@ function Content() {
   const [isEditing, setIsEditing] = useState(false)
 
   useEffect(() => {
-    fetch("http://localhost:9292/items")
+    fetch("http://localhost:9292/items/by_price")
     .then(res => res.json())
     .then(data => setItems(data))
   }, [])
@@ -37,7 +37,7 @@ function Content() {
     const updatedItems = items.filter(item => {
       if(item.id !== deletedItem.id) return item
     })
-    
+
     setItems(updatedItems)
   }
 
@@ -76,11 +76,8 @@ function Content() {
 
   return (
     <div className="Content">
-      <ToggleButtonGroup exclusive value={sort} onChange={handleSortChange}>
-        <ToggleButton value="price">Price</ToggleButton>
-        <ToggleButton value="priority">Priority</ToggleButton>
-      </ToggleButtonGroup>
-      <Balances balances={balances} onDeleteBalance={handleDeletedBalance} />
+      <Sort sort={sort} onSortChange={handleSortChange}/>
+      <BalancesContainer balances={balances} onDeleteBalance={handleDeletedBalance} />
       <div className="ItemContainer">
         {items.map(item => {
           if(!isEditing) {
