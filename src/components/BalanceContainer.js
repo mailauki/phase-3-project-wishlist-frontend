@@ -7,7 +7,7 @@ function BalanceContainer({ balances, isEditing, onDeleteBalance, onEditBalance,
   return (
     <div className="BalancesContainer shadow">
       <h3>Balances</h3>
-      <div className="BalanceContent">
+      <div className="BalanceContent" style={{height: `${balances.length*60}px`}}>
         {balances.map(balance => {
         if(!isEditing) {
           return <Balance

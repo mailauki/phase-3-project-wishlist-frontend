@@ -130,32 +130,7 @@ input[type=number]::-webkit-inner-spin-button {
   height: 28px;
 }
 
-.EditItem .PriorityToggle {
-  margin: 0;
-}
-
 .PriorityToggleButton {
   height: 28px;
   width: 26px;
-}
-
-.BalancesContainer form {
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-}
-
-.BalancesContainer form div {
-  flex-direction: column;
-  height: 100%;
-}
-
-.BalancesContainer form .submit {
-  height: 46px;
-  margin: 0 8px;
-}
-
-.BalancesContainer label {
-  width: fit-content;
 }

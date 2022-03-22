@@ -34,7 +34,7 @@ function EditItem({ item, balances, onEditSubmit }) {
 
   return (
     <div className="Item shadow">
-      <form onSubmit={handleEditItemFormSubmit}>
+      <form className="EditItem" onSubmit={handleEditItemFormSubmit}>
         <div>
           <label>Item Name</label>
           <input

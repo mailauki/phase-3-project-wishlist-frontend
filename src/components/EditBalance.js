@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import './styles/EditBalance.css'
 
 function EditBalance({ balance, onEditSubmit }) {
   const {id, name, amount } = balance
@@ -27,7 +28,7 @@ function EditBalance({ balance, onEditSubmit }) {
   }
 
   return (
-    <form onSubmit={handleEditBalanceFormSubmit}>
+    <form className="EditBalance" onSubmit={handleEditBalanceFormSubmit}>
       <div>
         <label>Balance Name</label>
         <input

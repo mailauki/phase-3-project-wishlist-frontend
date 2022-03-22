@@ -1,0 +1,26 @@
+.EditBalance {
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+  padding: 0;
+  margin: 0;
+}
+
+.EditBalance div {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 6px;
+}
+
+.EditBalance .submit {
+  height: 46px;
+  margin: 0 8px;
+}
+
+.EditBalance label {
+  width: fit-content;
+  height: fit-content;
+  margin: 0;
+}
