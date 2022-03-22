@@ -3,7 +3,7 @@ import BalanceContainer from './BalanceContainer';
 import Sort from './Sort';
 import ItemContainer from './ItemContainer';
 
-function Content() {
+function Content({ darkOn, DarkToggleButtonGroup }) {
   const loadingBalance = {name: "Loading name...", amount: 0.00}
   const loadingItem = {
     name: "Loadinng name...",
@@ -93,7 +93,12 @@ function Content() {
 
   return (
     <div className="Content">
-      <Sort sort={sort} onSortChange={handleSortChange}/>
+      <Sort
+        sort={sort}
+        onSortChange={handleSortChange}
+        darkOn={darkOn}
+        DarkToggleButtonGroup={DarkToggleButtonGroup}
+      />
       <BalanceContainer
         balances={balances}
         isEditing={isEditingBalance}
@@ -110,6 +115,8 @@ function Content() {
         onEditItem={handleEditItem}
         onUpdateItem={handleUpdateItem}
         updateItem={updateItem}
+        darkOn={darkOn}
+        DarkToggleButtonGroup={DarkToggleButtonGroup}
       />
     </div>
   )

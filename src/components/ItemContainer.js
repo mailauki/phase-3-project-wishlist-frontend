@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import Item from './Item';
 import EditItem from './EditItem';
 
-function ItemContainer({ items, balances, isEditing, onDeleteItem, onEditItem, onUpdateItem, updateItem }) {
+function ItemContainer({ items, balances, isEditing, onDeleteItem, onEditItem, onUpdateItem, updateItem, darkOn, DarkToggleButtonGroup }) {
   return (
     <div className="ItemContainer">
       {items.map(item => {
@@ -11,6 +11,7 @@ function ItemContainer({ items, balances, isEditing, onDeleteItem, onEditItem, o
             item={item}
             onDeleteItem={onDeleteItem}
             onEditItem={onEditItem}
+            darkOn={darkOn}
           />
         }
         else {
@@ -19,11 +20,14 @@ function ItemContainer({ items, balances, isEditing, onDeleteItem, onEditItem, o
             key={item.id}
             balances={balances}
             onEditSubmit={onUpdateItem}
+            darkOn={darkOn}
+            DarkToggleButtonGroup={DarkToggleButtonGroup}
           />
           else return <Item
             item={item}
             onDeleteItem={onDeleteItem}
             onEditItem={onEditItem}
+            darkOn={darkOn}
           />
         }
       })}

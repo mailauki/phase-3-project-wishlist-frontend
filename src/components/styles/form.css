@@ -1,0 +1,66 @@
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8px;
+}
+
+form div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin: 4px;
+  text-align: left;
+  height: 28px;
+}
+
+form label {
+  width: 80px;
+  font-size: 13px;
+  text-transform: uppercase;
+  color: #555;
+}
+
+form input {
+  width: 90px;
+  padding: 5px;
+  background-color: #e0e0e0;
+  border: 1px solid #bbb;
+  border-radius: 4px;
+  color: #333;
+}
+
+form select {
+  padding: 5px 6px;
+  background-color: #e0e0e0;
+  border: 1px solid #bbb;
+  border-radius: 4px;
+  color: #333;
+}
+
+form .submit {
+  width: 100px;
+  height: 30px;
+  margin: 8px;
+  font-weight: bold;
+  background-color: #e0e0e0;
+  border: 1px solid #bbb;
+  border-radius: 4px;
+  color: #333;
+  cursor: pointer;
+}
+
+form .submit:hover {
+  background-color: rgba(200, 200, 200, 0.5);
+}
+
+input[type=number]::-webkit-inner-spin-button {
+  filter: contrast(0.84);
+  height: 26px;
+}
+
+.PriorityToggleButton {
+  height: 28px;
+  width: 26px;
+}

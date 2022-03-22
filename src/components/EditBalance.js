@@ -28,28 +28,30 @@ function EditBalance({ balance, onEditSubmit }) {
   }
 
   return (
-    <form className="EditBalance" onSubmit={handleEditBalanceFormSubmit}>
-      <div>
-        <label>Balance Name</label>
-        <input
-          type="text"
-          placeholder="Piggy Bank"
-          value={balanceName}
-          onChange={event => setBalanceName(event.target.value)}
-        />
-      </div>
-      <div>
-        <label>Amount</label>
-        <input
-          type="number"
-          placeholder="$0.00"
-          step="0.01"
-          value={balanceAmount}
-          onChange={event => setBalanceAmount(event.target.value)}
-        />
-      </div>
-      <button type="submit" className="submit">Submit</button>
-    </form>
+    <div className="EditBalance">
+      <form onSubmit={handleEditBalanceFormSubmit}>
+        <div>
+          <label>Balance Name</label>
+          <input
+            type="text"
+            placeholder="Piggy Bank"
+            value={balanceName}
+            onChange={event => setBalanceName(event.target.value)}
+          />
+        </div>
+        <div>
+          <label>Amount</label>
+          <input
+            type="number"
+            placeholder="$0.00"
+            step="0.01"
+            value={balanceAmount}
+            onChange={event => setBalanceAmount(event.target.value)}
+          />
+        </div>
+        <button type="submit" className="submit">Submit</button>
+      </form>
+    </div>
   )
 }
 

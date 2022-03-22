@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import './styles/Form.css';
 import { ToggleButtonGroup, ToggleButton } from '@mui/material';
 
-function AddItemForm() {
+function AddItemForm({ darkOn, DarkToggleButtonGroup }) {
   const [balances, setBalances] = useState([])
   const [itemName, setItemName] = useState("")
   const [itemPrice, setItemPrice] = useState()
@@ -71,17 +71,31 @@ function AddItemForm() {
         </div>
         <div>
           <label>Priority #{itemPriority}</label>
-          <ToggleButtonGroup
-            className="PriorityToggle"
-            exclusive
-            value={itemPriority}
-            onChange={(event, selected) => setItemPriority(selected)}
-          >
-            <ToggleButton value={1}><span>!</span></ToggleButton>
-            <ToggleButton value={2}><span>!!</span></ToggleButton>
-            <ToggleButton value={3}><span>!!!</span></ToggleButton>
-            <ToggleButton value={4}><span>!!!!</span></ToggleButton>
-          </ToggleButtonGroup>
+          {darkOn ?
+            <DarkToggleButtonGroup
+              className="PriorityToggle"
+              exclusive
+              value={itemPriority}
+              onChange={(event, selected) => setItemPriority(selected)}
+            >
+              <ToggleButton value={1}><span>!</span></ToggleButton>
+              <ToggleButton value={2}><span>!!</span></ToggleButton>
+              <ToggleButton value={3}><span>!!!</span></ToggleButton>
+              <ToggleButton value={4}><span>!!!!</span></ToggleButton>
+            </DarkToggleButtonGroup>
+          :
+            <ToggleButtonGroup
+              className="PriorityToggle"
+              exclusive
+              value={itemPriority}
+              onChange={(event, selected) => setItemPriority(selected)}
+            >
+              <ToggleButton value={1}><span>!</span></ToggleButton>
+              <ToggleButton value={2}><span>!!</span></ToggleButton>
+              <ToggleButton value={3}><span>!!!</span></ToggleButton>
+              <ToggleButton value={4}><span>!!!!</span></ToggleButton>
+            </ToggleButtonGroup>
+          }
         </div>
         <div>
           <label>Category</label>

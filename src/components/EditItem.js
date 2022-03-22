@@ -1,7 +1,8 @@
 import { useState } from 'react';
+import './styles/EditItem.css';
 import { ToggleButtonGroup, ToggleButton } from '@mui/material';
 
-function EditItem({ item, balances, onEditSubmit }) {
+function EditItem({ item, balances, onEditSubmit, darkOn, DarkToggleButtonGroup }) {
   const {id, name, price, priority, category, balance} = item
 
   const [itemName, setItemName] = useState(name)
@@ -33,8 +34,8 @@ function EditItem({ item, balances, onEditSubmit }) {
   }
 
   return (
-    <div className="Item shadow">
-      <form className="EditItem" onSubmit={handleEditItemFormSubmit}>
+    <div className="EditItem shadow">
+      <form onSubmit={handleEditItemFormSubmit}>
         <div>
           <label>Item Name</label>
           <input
@@ -56,17 +57,55 @@ function EditItem({ item, balances, onEditSubmit }) {
         </div>
         <div>
           <label>Priority #{itemPriority}</label>
-          <ToggleButtonGroup
-            className="PriorityToggle"
-            exclusive
-            value={itemPriority}
-            onChange={(event, selected) => setItemPriority(selected)}
-          >
-            <ToggleButton className="PriorityToggleButton" value={1}>!</ToggleButton>
-            <ToggleButton className="PriorityToggleButton" value={2}>!!</ToggleButton>
-            <ToggleButton className="PriorityToggleButton" value={3}>!!!</ToggleButton>
-            <ToggleButton className="PriorityToggleButton" value={4}>!!!!</ToggleButton>
-          </ToggleButtonGroup>
+          {darkOn ?
+            <DarkToggleButtonGroup
+              className="PriorityToggle"
+              exclusive
+              value={itemPriority}
+              onChange={(event, selected) => setItemPriority(selected)}
+            >
+              <ToggleButton
+                className="PriorityToggleButton"
+                value={1}
+              >!</ToggleButton>
+              <ToggleButton
+                className="PriorityToggleButton"
+                value={2}
+              >!!</ToggleButton>
+              <ToggleButton
+                className="PriorityToggleButton"
+                value={3}
+              >!!!</ToggleButton>
+              <ToggleButton
+                className="PriorityToggleButton"
+                value={4}
+              >!!!!</ToggleButton>
+            </DarkToggleButtonGroup>
+          :
+            <ToggleButtonGroup
+              className="PriorityToggle"
+              exclusive
+              value={itemPriority}
+              onChange={(event, selected) => setItemPriority(selected)}
+            >
+              <ToggleButton
+                className="PriorityToggleButton"
+                value={1}
+              >!</ToggleButton>
+              <ToggleButton
+                className="PriorityToggleButton"
+                value={2}
+              >!!</ToggleButton>
+              <ToggleButton
+                className="PriorityToggleButton"
+                value={3}
+              >!!!</ToggleButton>
+              <ToggleButton
+                className="PriorityToggleButton"
+                value={4}
+              >!!!!</ToggleButton>
+            </ToggleButtonGroup>
+          }
         </div>
         <div>
           <label>Category</label>

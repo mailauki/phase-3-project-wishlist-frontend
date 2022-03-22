@@ -1,0 +1,67 @@
+.dark {
+  background: #292929;
+  color: #e0e0e0;
+}
+
+.dark .shadow {
+  background: #292929;
+  box-shadow:  10px 10px 20px #252525,
+              -10px -10px 20px #2d2d2d;
+}
+
+.dark .ItemInfo, .dark .Balance {
+  color: #bbb;
+}
+
+.dark .ItemAdd {
+  color: #888;
+}
+
+.dark .ItemAdd:hover {
+  background-color: rgba(80, 80, 80, 0.5);
+}
+
+.dark .button {
+  background-color: #292929;
+  border: 1px solid #555;
+  color: #888;
+}
+
+.dark .button:hover {
+  background-color: rgba(80, 80, 80, 0.5);
+}
+
+.dark label {
+  color: #888;
+}
+
+.dark hr {
+  border: none;
+  border-bottom: solid 2px #333;
+}
+
+.dark input {
+  background-color: #292929;
+  border: 1px solid #555;
+  color: #bbb;
+}
+
+.dark select {
+  background-color: #292929;
+  border:  1px solid #555;
+  color: #bbb;
+}
+
+.dark form .submit {
+  background-color: #292929;
+  border:  1px solid #555;
+  color: #bbb;
+}
+
+.dark form .submit:hover {
+  background-color: rgba(80, 80, 80, 0.5);
+}
+
+.dark input[type=number]::-webkit-inner-spin-button {
+  filter: invert(0.88)
+}

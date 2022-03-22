@@ -5,6 +5,23 @@
   min-height: 100vh;
 }
 
+.Header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 510px;
+  margin: 0 auto 20px auto;
+}
+
+.Header label {
+  color: #aaa;
+  padding-right: 4px;
+}
+
+h3 {
+  margin: 10px;
+}
+
 .Content {
   margin-bottom: 80px;
 }
@@ -21,8 +38,4 @@
   background: #e0e0e0;
   box-shadow:  10px 10px 20px #cacaca,
               -10px -10px 20px #f6f6f6;
-}
-
-h3 {
-  margin: 10px auto;
 }
