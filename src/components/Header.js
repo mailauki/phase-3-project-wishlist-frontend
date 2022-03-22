@@ -11,13 +11,11 @@ function Header({ darkOn, darkify, DarkSwitch }) {
         <label>{darkOn ? "Dark": "Light"}</label>
         {darkOn ?
           <DarkSwitch
-            defaultChecked
             checked={darkOn}
             onChange={handleSwitchChange}
           />
         :
           <Switch
-            defaultChecked
             color="default"
             checked={darkOn}
             onChange={handleSwitchChange}

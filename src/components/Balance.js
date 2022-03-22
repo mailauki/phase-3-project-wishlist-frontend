@@ -10,7 +10,7 @@ function Balance({ balance, onDeleteBalance, onEditBalance }) {
   }
 
   return (
-    <div className="Balance" key={balance.id}>
+    <div className="Balance">
       <div className="BalanceInfo">
         <p>{balance.name}</p>
         <hr/>

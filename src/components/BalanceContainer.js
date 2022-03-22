@@ -12,6 +12,7 @@ function BalanceContainer({ balances, isEditing, onDeleteBalance, onEditBalance,
         if(!isEditing) {
           return <Balance
             balance={balance}
+            key={`Balance: ${balance.id}`}
             onDeleteBalance={onDeleteBalance}
             onEditBalance={onEditBalance}
           />
@@ -19,11 +20,12 @@ function BalanceContainer({ balances, isEditing, onDeleteBalance, onEditBalance,
         else {
           if(balance.id === updateBalance.id) return <EditBalance
             balance={balance}
-            key={balance.id}
+            key={`EditBalance: ${balances.id}`}
             onEditSubmit={onUpdateBalance}
           />
           else return <Balance
             balance={balance}
+            key={`Balance: ${balance.id}`}
             onDeleteBalance={onDeleteBalance}
             onEditBalance={onEditBalance}
           />

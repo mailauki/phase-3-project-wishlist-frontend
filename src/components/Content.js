@@ -6,7 +6,7 @@ import ItemContainer from './ItemContainer';
 function Content({ darkOn, DarkToggleButtonGroup }) {
   const loadingBalance = {name: "Loading name...", amount: 0.00}
   const loadingItem = {
-    name: "Loadinng name...",
+    name: "Loading name...",
     price: 0.00,
     priority: 1,
     category: "Please wait...",

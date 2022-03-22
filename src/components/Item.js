@@ -15,7 +15,7 @@ function Item({ item, onDeleteItem, onEditItem, darkOn }) {
   }
 
   return (
-    <div className="Item shadow" key={id}>
+    <div className="Item shadow">
       <h3>{name}</h3>
       <div className="ItemContent">
         <div className="ItemInfo">

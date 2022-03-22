@@ -9,6 +9,7 @@ function ItemContainer({ items, balances, isEditing, onDeleteItem, onEditItem, o
         if(!isEditing) {
           return <Item
             item={item}
+            key={`Item: ${item.id}`}
             onDeleteItem={onDeleteItem}
             onEditItem={onEditItem}
             darkOn={darkOn}
@@ -17,7 +18,7 @@ function ItemContainer({ items, balances, isEditing, onDeleteItem, onEditItem, o
         else {
           if(item.id === updateItem.id) return <EditItem
             item={item}
-            key={item.id}
+            key={`EditItem: ${item.id}`}
             balances={balances}
             onEditSubmit={onUpdateItem}
             darkOn={darkOn}
@@ -25,6 +26,7 @@ function ItemContainer({ items, balances, isEditing, onDeleteItem, onEditItem, o
           />
           else return <Item
             item={item}
+            key={`Item: ${item.id}`}
             onDeleteItem={onDeleteItem}
             onEditItem={onEditItem}
             darkOn={darkOn}
