@@ -11,7 +11,11 @@ function Balance({ balance, onDeleteBalance, onEditBalance }) {
 
   return (
     <div className="Balance" key={balance.id}>
-      <p>{balance.name} - <span>${parseFloat(balance.amount).toFixed(2)}</span></p>
+      <div className="BalanceInfo">
+        <p>{balance.name}</p>
+        <hr/>
+        <p><span>${parseFloat(balance.amount).toFixed(2)}</span></p>
+      </div>
       <ButtonGroup handleDelete={handleBalanceDelete} handleEdit={() => onEditBalance(balance)} />
     </div>
   )

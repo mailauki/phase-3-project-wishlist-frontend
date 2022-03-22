@@ -11,18 +11,45 @@
 }
 
 .BalanceContent:hover {
-  margin-bottom: 10px;
+  margin-bottom: 24.2px;
+}
+
+.Balance:hover {
+  margin-bottom: -34px;
+  padding-bottom: 34px;
 }
 
 .Balance {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 0;
+  color: #555;
+  min-height: 44px;
 }
 
 .Balance p {
   margin: 4px auto;
+  text-transform: uppercase;
+  text-align: justify;
+  min-width: fit-content;
+}
+
+.Balance span {
+  font-weight: 500;
+}
+
+.BalanceInfo {
+  width: 60%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.Balance hr {
+  width: 100%;
+  height: 1px;
+  margin: auto 10px;
 }
 
 .BalanceAdd {
