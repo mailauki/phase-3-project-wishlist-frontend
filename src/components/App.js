@@ -23,14 +23,14 @@ function App() {
         color: "#ccc",
       },
       '&:hover': {
-        backgroundColor: "rgba(60, 60, 60, 0.5)"
+        backgroundColor: "rgba(60, 60, 60, 0.4)"
       },
       '&.Mui-selected': {
-        backgroundColor: "rgba(60, 60, 60, 0.5)",
+        backgroundColor: "rgba(60, 60, 60, 0.7)",
         color: "#e0e0e0",
       },
       '&.Mui-selected:hover': {
-        backgroundColor: 'rgba(60, 60, 60, 0.8)'
+        backgroundColor: 'rgba(60, 60, 60, 0.9)'
       },
     },
   }))

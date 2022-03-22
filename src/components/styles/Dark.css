@@ -18,7 +18,7 @@
 }
 
 .dark .ItemAdd:hover {
-  background-color: rgba(80, 80, 80, 0.5);
+  background-color: rgba(60, 60, 60, 0.4);
 }
 
 .dark .button {
@@ -28,7 +28,7 @@
 }
 
 .dark .button:hover {
-  background-color: rgba(80, 80, 80, 0.5);
+  background-color: rgba(60, 60, 60, 0.4);
 }
 
 .dark label {
