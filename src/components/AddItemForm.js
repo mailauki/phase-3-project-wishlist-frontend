@@ -16,7 +16,10 @@ function AddItemForm() {
   useEffect(() => {
     fetch("http://localhost:9292/balances")
     .then(res => res.json())
-    .then(data => setBalances(data))
+    .then(data => {
+      setBalances(data)
+      setBalanceId(data[0].id)
+    })
   }, [])
 
   function handleItemFormSubmit(event) {

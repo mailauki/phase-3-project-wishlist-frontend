@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import Balance from './Balance';
 import './styles/Balance.css'
 
-function BalancesContainer({ balances, onDeleteBalance }) {
+function BalanceContainer({ balances, onDeleteBalance }) {
   return (
     <div className="BalancesContainer shadow">
       <h3>Balances</h3>
@@ -20,4 +20,4 @@ function BalancesContainer({ balances, onDeleteBalance }) {
   )
 }
 
-export default BalancesContainer;
+export default BalanceContainer;

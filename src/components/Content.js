@@ -1,9 +1,7 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import BalancesContainer from './BalancesContainer';
-import Item from './Item';
-import EditItem from './EditItem';
+import BalanceContainer from './BalanceContainer';
 import Sort from './Sort';
+import ItemContainer from './ItemContainer';
 
 function Content() {
   const loadingBalance = {name: "Loading name...", amount: 0.00}
@@ -17,9 +15,9 @@ function Content() {
 
   const [items, setItems] = useState([loadingItem]);
   const [balances, setBalances] = useState([loadingBalance]);
-  const [sort, setSort] = useState("price");
-  const [updateItem, setUpdateItem] = useState(loadingItem);
+  const [updateItem, setUpdateItem] = useState();
   const [isEditing, setIsEditing] = useState(false)
+  const [sort, setSort] = useState("price");
 
   useEffect(() => {
     fetch("http://localhost:9292/items/by_price")
@@ -77,38 +75,16 @@ function Content() {
   return (
     <div className="Content">
       <Sort sort={sort} onSortChange={handleSortChange}/>
-      <BalancesContainer balances={balances} onDeleteBalance={handleDeletedBalance} />
-      <div className="ItemContainer">
-        {items.map(item => {
-          if(!isEditing) {
-            return <Item
-              item={item}
-              onDeleteItem={handleDeletedItem}
-              onEditItem={handleEditItem}
-            />
-          }
-          else {
-            if(item.id === updateItem.id) return <EditItem
-            item={item}
-            key={item.id}
-            balances={balances}
-            onEditSubmit={handleUpdateItem}
-          />
-            else return <Item
-            item={item}
-            onDeleteItem={handleDeletedItem}
-            onEditItem={handleEditItem}
-          />
-          }
-        })}
-        <div className="Item shadow">
-          <Link to="/add-item" >
-            <div className="ItemAdd">
-              <h1>+</h1>
-            </div>
-          </Link>
-        </div>
-      </div>
+      <BalanceContainer balances={balances} onDeleteBalance={handleDeletedBalance} />
+      <ItemContainer
+        items={items}
+        balances={balances}
+        isEditing={isEditing}
+        onDeleteItem={handleDeletedItem}
+        onEditItem={handleEditItem}
+        onUpdateItem={handleUpdateItem}
+        updateItem={updateItem}
+      />
     </div>
   )
 }
