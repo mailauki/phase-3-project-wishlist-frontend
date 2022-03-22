@@ -16,7 +16,9 @@ function Content() {
   const [items, setItems] = useState([loadingItem]);
   const [balances, setBalances] = useState([loadingBalance]);
   const [updateItem, setUpdateItem] = useState();
-  const [isEditing, setIsEditing] = useState(false)
+  const [isEditingItem, setIsEditingItem] = useState(false)
+  const [updateBalance, setUpdateBalance] = useState();
+  const [isEditingBalance, setIsEditingBalance] = useState(false)
   const [sort, setSort] = useState("price");
 
   useEffect(() => {
@@ -39,6 +41,23 @@ function Content() {
     setItems(updatedItems)
   }
 
+  function handleEditItem(item) {
+    setUpdateItem(item)
+    setIsEditingItem(true)
+  }
+
+  function handleUpdateItem(updatedItem) {
+    setUpdateItem(updatedItem)
+    setIsEditingItem(false)
+
+    const updatedItems = items.map(item => {
+      if (item.id === updatedItem.id) return updatedItem
+      else return item
+    })
+
+    setItems(updatedItems)
+  }
+
   function handleDeletedBalance(deletedBalance) {
     const updatedBalances = balances.filter(balance => {
       if(balance.id !== deletedBalance.id) return balance
@@ -47,21 +66,21 @@ function Content() {
     setBalances(updatedBalances)
   }
 
-  function handleEditItem(item) {
-    setUpdateItem(item)
-    setIsEditing(true)
+  function handleEditBalance(balance) {
+    setUpdateBalance(balance)
+    setIsEditingBalance(true)
   }
+  
+  function handleUpdateBalance(updatedBalance) {
+    setUpdateBalance(updatedBalance)
+    setIsEditingBalance(false)
 
-  function handleUpdateItem(updatedItem) {
-    setUpdateItem(updatedItem)
-    setIsEditing(false)
-
-    const updatedItems = items.map(item => {
-      if (item.id === updatedItem.id) return updatedItem
-      else return item
+    const updatedBalances = balances.map(balance => {
+      if (balance.id === updatedBalance.id) return updatedBalance
+      else return balance
     })
 
-    setItems(updatedItems)
+    setBalances(updatedBalances)
   }
 
   function handleSortChange(event, selected) {
@@ -75,11 +94,18 @@ function Content() {
   return (
     <div className="Content">
       <Sort sort={sort} onSortChange={handleSortChange}/>
-      <BalanceContainer balances={balances} onDeleteBalance={handleDeletedBalance} />
+      <BalanceContainer
+        balances={balances}
+        isEditing={isEditingBalance}
+        onDeleteBalance={handleDeletedBalance}
+        onEditBalance={handleEditBalance}
+        onUpdateBalance={handleUpdateBalance}
+        updateBalance={updateBalance}
+      />
       <ItemContainer
         items={items}
         balances={balances}
-        isEditing={isEditing}
+        isEditing={isEditingItem}
         onDeleteItem={handleDeletedItem}
         onEditItem={handleEditItem}
         onUpdateItem={handleUpdateItem}

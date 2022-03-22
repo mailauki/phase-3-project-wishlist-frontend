@@ -10,22 +10,6 @@ function EditItem({ item, balances, onEditSubmit }) {
   const [itemCategory, setItemCategory] = useState(category)
   const [balanceId, setBalanceId] = useState(balance.id)
 
-
-  const selectedBalance = balances.find(balance => {
-    if(balance.id === balanceId) return balance
-  })
-  // console.log(selectedBalance)
-  
-  // const formData = {
-  //   name: itemName,
-  //   price: itemPrice,
-  //   priority: itemPriority,
-  //   category: itemCategory,
-  //   // balance_id: balanceId,
-  //   balance: selectedBalance
-  // }
-  // console.log(formData)
-
   function handleEditItemFormSubmit(event) {
     event.preventDefault()
 
@@ -35,7 +19,6 @@ function EditItem({ item, balances, onEditSubmit }) {
       priority: itemPriority,
       category: itemCategory,
       balance_id: balanceId,
-      // balance: selectedBalance
     }
 
     fetch(`http://localhost:9292/items/${id}`, {
@@ -48,13 +31,6 @@ function EditItem({ item, balances, onEditSubmit }) {
     .then(res => res.json())
     .then(data => onEditSubmit(data))
   }
-
-  // console.log(balanceId)
-  // function handleBalanceChange(event) {
-  //   // console.log(event.target.value)
-  //   setBalanceId(Number(event.target.value))
-  //   console.log({balanceId})
-  // }
 
   return (
     <div className="Item shadow">
