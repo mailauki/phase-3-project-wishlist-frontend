@@ -22,4 +22,6 @@ $ npm start
 
 - Toggle buttons are from [mui](https://mui.com/components/toggle-button/)
 - Toggle switch is from [mui](https://mui.com/components/switches/)
-- Circular progress bar is from [npmjs](https://www.npmjs.com/package/react-circular-progressbar)
+- Circular progress bar is from [npm](https://www.npmjs.com/package/react-circular-progressbar)
+
+> all are included in depencies with npm install
