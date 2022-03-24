@@ -1,20 +1,20 @@
 import { ToggleButtonGroup, ToggleButton } from '@mui/material';
 import './styles/Sort.css';
 
-function Sort({ sort, onSortChange, darkOn, DarkToggleButtonGroup }) {
+function Sort({ sort, onSortChange, darkOn, DarkSortToggleButtonGroup, LightSortToggleButtonGroup }) {
   return (
     <div className="Sort">
       <p>Sort by: </p>
       {darkOn ?
-        <DarkToggleButtonGroup exclusive value={sort} onChange={onSortChange}>  
+        <DarkSortToggleButtonGroup exclusive value={sort} onChange={onSortChange}>  
           <ToggleButton value="price">Price</ToggleButton>
           <ToggleButton value="priority">Priority</ToggleButton>
-        </DarkToggleButtonGroup>
+        </DarkSortToggleButtonGroup>
       :
-        <ToggleButtonGroup exclusive value={sort} onChange={onSortChange}>
+        <LightSortToggleButtonGroup exclusive value={sort} onChange={onSortChange}>
           <ToggleButton value="price">Price</ToggleButton>
           <ToggleButton value="priority">Priority</ToggleButton>
-        </ToggleButtonGroup>
+        </LightSortToggleButtonGroup>
       }
     </div>
   )

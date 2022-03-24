@@ -35,7 +35,6 @@ h3 {
 }
 
 .shadow {
-  background: #e0e0e0;
-  box-shadow:  10px 10px 20px #cacaca,
-              -10px -10px 20px #f6f6f6;
+  box-shadow:  10px 10px 20px #b3b3b3,
+              -10px -10px 20px #ffffff;
 }

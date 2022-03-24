@@ -3,7 +3,7 @@ import BalanceContainer from './BalanceContainer';
 import Sort from './Sort';
 import ItemContainer from './ItemContainer';
 
-function Content({ darkOn, DarkToggleButtonGroup }) {
+function Content({ darkOn, DarkToggleButtonGroup, DarkSortToggleButtonGroup, LightSortToggleButtonGroup }) {
   const loadingBalance = {name: "Loading name...", amount: 0.00}
   const loadingItem = {
     name: "Loading name...",
@@ -97,7 +97,8 @@ function Content({ darkOn, DarkToggleButtonGroup }) {
         sort={sort}
         onSortChange={handleSortChange}
         darkOn={darkOn}
-        DarkToggleButtonGroup={DarkToggleButtonGroup}
+        DarkSortToggleButtonGroup={DarkSortToggleButtonGroup}
+        LightSortToggleButtonGroup={LightSortToggleButtonGroup}
       />
       <BalanceContainer
         balances={balances}

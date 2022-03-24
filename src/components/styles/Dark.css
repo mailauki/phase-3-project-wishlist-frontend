@@ -4,9 +4,8 @@
 }
 
 .dark .shadow {
-  background: #292929;
-  box-shadow:  10px 10px 20px #252525,
-              -10px -10px 20px #2d2d2d;
+  box-shadow:  10px 10px 20px #212121,
+             -10px -10px 20px #313131;
 }
 
 .dark .ItemInfo, .dark .Balance {
@@ -15,20 +14,26 @@
 
 .dark .ItemAdd {
   color: #888;
+  text-shadow: #313131 1px 1px 2px;
 }
 
 .dark .ItemAdd:hover {
-  background-color: rgba(60, 60, 60, 0.4);
+  background: linear-gradient(145deg, #252525, #2c2c2c);
 }
 
 .dark .button {
-  background-color: #292929;
-  border: 1px solid #555;
+  border: none;
   color: #888;
+  background: #292929;
+  box-shadow:  3px 3px 6px #212121,
+                -3px -3px 6px #313131;
+  text-shadow: #313131 1px 1px 2px;
 }
 
 .dark .button:hover {
-  background-color: rgba(60, 60, 60, 0.4);
+  background: linear-gradient(145deg, #252525, #2c2c2c);
+  box-shadow:  3px 3px 6px #212121,
+              -3px -3px 6px #313131;
 }
 
 .dark label {
